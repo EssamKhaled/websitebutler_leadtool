@@ -1,0 +1,12 @@
+{% extends '@CompanyMapper/layout.html.twig' %}
+
+{% block content %}
+    <h1>Adding a new Company List</h1>
+
+    {{ form_start(form) }}
+        <div>{{ form_row(form.companyList) }}</div>
+        <br>
+        <div>{{ form_row(form.submit) }}</div>
+    {{ form_end(form) }}
+
+{% endblock %}

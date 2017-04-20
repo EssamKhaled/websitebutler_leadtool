@@ -1,0 +1,11 @@
+parameters:
+    company_list_directory: '%kernel.root_dir%/../web/uploads/company_list'
+
+services:
+    company_list_uploader_service:
+        class: CompanyMapperBundle\Service\FileUploader
+        arguments: ['%company_list_directory%']
+
+    company_list_mapper_service:
+        class: CompanyMapperBundle\Service\CompanyListMapper
+        arguments: ['@phpexcel', '%company_list_directory%', '@doctrine.orm.entity_manager']

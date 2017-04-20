@@ -1,0 +1,39 @@
+{% extends '@CompanyMapper/layout.html.twig' %}
+
+{% block content %}
+    <div>
+        <h1>Drag-and-Drop Mapper</h1>
+        <p>Please Drag-and-Drop your Rows to the correct Mapping fields.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="containers">
+                {% for column_name,rows in mappedData %}
+                <li class="col-lg-6">{{ column_name|capitalize }}
+                    <ul class="rows" id="{{ column_name }}">
+                        <li>
+                            {% for key,row in rows %}
+                                <p>{{ row }}</p>
+                            {% endfor %}
+                        </li>
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="pull-right">
+                <a href="#" class="btn btn-primary" id="save-btn">Save Data</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/companymapper/js/script.js') }}"></script>
+{% endblock %}
