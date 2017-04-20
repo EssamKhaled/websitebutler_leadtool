@@ -33,7 +33,7 @@ class CompanyController extends Controller
                     'mappedData' => $mappedData
                 ));
             } catch (UploadException $e){
-
+                // @TODO Handle the exception with pretty error message in the frontend view.
             }
         }
 
